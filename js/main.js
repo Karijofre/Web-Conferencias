@@ -4,18 +4,7 @@
     var regalo = document.getElementById("regalo");
 
     document.addEventListener("DOMContentLoaded", function(){
-        //Mapa
-        var map = L.map('mapa').setView([38.890711, 1.396095], 16);   /* Agrego mis coordenadas entre los [] y luego de la coma está el zoom del mapa, cuán más grande sea el número mas cerca será el zoom */
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-       }).addTo(map);
-
-       L.marker([38.890711, 1.396095]).addTo(map)  /* Agrego mis coordenadas entre los [] */
-           .bindPopup('GDLWebCamp 2021<br> Boletos ya disponibles.') /* Descripción del globo de ubicación exacta */
-           .openPopup();
-
-
+        
         //Campos datos usuarios
         var nombre = document.getElementById("nombre");
         var apellido = document.getElementById("apellido");
@@ -150,6 +139,33 @@
             }
         }
 
+        //Mapa
+        var map = L.map('mapa').setView([38.890711, 1.396095], 16);   /* Agrego mis coordenadas entre los [] y luego de la coma está el zoom del mapa, cuán más grande sea el número mas cerca será el zoom */
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([38.890711, 1.396095]).addTo(map)  /* Agrego mis coordenadas entre los [] */
+           .bindPopup('GDLWebCamp 2021<br> Boletos ya disponibles.') /* Descripción del globo de ubicación exacta */
+           .openPopup();
+
     }); //DOM CONTENT LOADED
 })();
+
+
+
+$(function(){
+    alert("funciona")
+});
+
+
+
+
+
+
+
+
+
+
 
