@@ -28,6 +28,11 @@
         var etiquetas = document.getElementById("etiquetas");
         var camisas = document.getElementById("camisa_evento");
 
+
+        if(document.getElementById("calcular")){
+
+        
+
         calcular.addEventListener("click", calcularMontos);
 
         pase_dia.addEventListener("blur", mostrarDias); /* muestra solamente los días disponibles según el paquete que elija el usuario. Importante, blur retorna el value que ingresa el usuario una vez que hace clic fuera del input */
@@ -138,26 +143,112 @@
                 document.getElementById(diasElegidos[i]).style.display = "block"; /* basado en el evento blur */
             }
         }
-
-        //Mapa
-        var map = L.map('mapa').setView([38.890711, 1.396095], 16);   /* Agrego mis coordenadas entre los [] y luego de la coma está el zoom del mapa, cuán más grande sea el número mas cerca será el zoom */
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        L.marker([38.890711, 1.396095]).addTo(map)  /* Agrego mis coordenadas entre los [] */
-           .bindPopup('GDLWebCamp 2021<br> Boletos ya disponibles.') /* Descripción del globo de ubicación exacta */
-           .openPopup();
+        
+        }  
 
     }); //DOM CONTENT LOADED
 })();
 
+    $(function(){
+
+        //Lettering provisto de: http://letteringjs.com/
+
+        $(".nombre-sitio").lettering();
+
+        //Menú fijo
+
+        var windowHeight = $(window).height(); //La medición en píxeles de mi página web
+        var barraAltura = $(".barra").innerHeight();
+
+    
+
+        $(window).scroll(function(){
+            var scroll = $(window).scrollTop();  //línea importante para detectar el scroll
+            if(scroll > windowHeight){
+                $(".barra").addClass("fixed");
+                $("body").css({"margin-top": barraAltura + "px"});
+            }else{
+                $(".barra").removeClass("fixed");
+                $("body").css({"margin-top": "0px"});
+            }
+        
+        });
+
+        //Menú responsive
+
+        $(".menu-movil").on("click", function(){
+            $(".navegacion-principal").slideToggle();
+        })
 
 
-$(function(){
-    alert("funciona")
-});
+        //Programa de Conferencias
+
+        $("div.ocultar").hide();
+
+        $(".programa-evento .info-curso:first").show();
+
+        $(".menu-programa a:first").addClass("activo");
+
+        $(".menu-programa a").on("click", function(){
+            $(".menu-programa a").removeClass("activo");
+            $(this).addClass("activo");
+            $(".ocultar").hide();
+            var enlace = $(this).attr("href");
+            $(enlace).fadeIn(1000);
+            return false; //Para que no de el salto de cada sección al aparecer
+        });
+
+
+        //Animaciones para los números
+
+        $(".resumen-evento li:nth-child(1) p").animateNumber({number:6}, 1200);
+        $(".resumen-evento li:nth-child(2) p").animateNumber({number:15}, 1200);
+        $(".resumen-evento li:nth-child(3) p").animateNumber({number:3}, 1500);
+        $(".resumen-evento li:nth-child(4) p").animateNumber({number:9}, 1500);
+
+
+        //Cuenta regresiva provisto de: http://hilios.github.io/jQuery.countdown/
+
+        $(".cuenta-regresiva").countdown("2021/11/04 09:00:00", function(event){
+            $("#dias").html(event.strftime("%D"));  //strftime es una función del countdown para psar las fechas a un string, las formatea
+            $("#horas").html(event.strftime("%H"));
+            $("#minutos").html(event.strftime("%M"));
+            $("#segundos").html(event.strftime("%S"));
+        })
+
+        //Mapa,
+
+        //- Agrego mis coordenadas entre los [] y luego de la coma está el zoom del mapa, cuán más grande sea el número mas cerca será el zoom. ------  var map
+        //- Agrego mis coordenadas entre los [] -------  L.marker
+        //- Descripción del globo de ubicación exacta -------  .bindPopup
+       
+         $(function(){
+            var map = L.map('mapa').setView([38.890711, 1.396095], 16);
+
+           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+           L.marker([38.890711, 1.396095]).addTo(map)
+           .bindPopup('GDLWebCamp 2021<br> Boletos ya disponibles.')
+           .openPopup();
+        })
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
