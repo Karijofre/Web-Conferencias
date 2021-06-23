@@ -1034,6 +1034,13 @@ div.paquetes .tabla-precio input {
   display: none;
 }
 
+@media (max-width:568px) and (min-width:320px){
+  #btnRegistro{
+    margin-top: auto;
+    margin-left: -15px;
+  }
+}
+
 
 
 /* ==========================================================================
