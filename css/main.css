@@ -338,11 +338,19 @@ div.logo{
   }
 }
 
+
+
 @media (min-width:768px){
   .contenido-barra{
     display: flex;
     justify-content:space-between;
     align-items: center;
+  }
+}
+
+@media (max-width:568px) and (min-width:320px){
+  div.logo{
+    display: none;
   }
 }
 
