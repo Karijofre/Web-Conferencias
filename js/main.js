@@ -88,7 +88,7 @@
                    /*  console.log("Boletos Dia: " + boletosDia);
                     console.log("Boletos 2 Dias:" + boletos2Dias);
                     console.log("Boletos Completos" + boletoCompleto); */
-                var totalPagar = (boletosDia * 30) + (boletos2Dias * 45) + (boletoCompleto * 50) + ((cantCamisas * 10) * .93) * (cantEtiquetas * 2);
+                var totalPagar = (boletosDia * 30) + (boletos2Dias * 45) + (boletoCompleto * 50) + ((cantCamisas * 10) * .93) + (cantEtiquetas * 2);
                  // console.log(totalPagar);  
                 var listadoProductos = [];
                 if(boletosDia >= 1){

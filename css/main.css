@@ -329,9 +329,9 @@ div.logo{
   width: 80%;
   float: left;
 }
-img{
-  /* width: 100%; */
-}
+/* img{
+   width: 100%;
+} */
 @media only screen and (min-width: 768px){
   div.logo{
     width: 33%;
