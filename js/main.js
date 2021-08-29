@@ -1,5 +1,5 @@
 (function(){
-    "use strict";
+    /* "use strict"; */
 
     var regalo = document.getElementById("regalo");
 
@@ -155,6 +155,11 @@
 
         $(".nombre-sitio").lettering();
 
+        //Agregar clase al menú
+        $("body.conferencia .navegacion-principal a:contains('Conferencia')").addClass("activo");
+        $("body.calendario .navegacion-principal a:contains('Calendario')").addClass("activo");
+        $("body.invitados .navegacion-principal a:contains('Invitados')").addClass("activo");
+
         //Menú fijo
 
         var windowHeight = $(window).height(); //La medición en píxeles de mi página web
@@ -214,7 +219,20 @@
             $("#horas").html(event.strftime("%H"));
             $("#minutos").html(event.strftime("%M"));
             $("#segundos").html(event.strftime("%S"));
-        })
+
+             //Colorbox
+
+            $(".invitado-info").colorbox({inline:true, width:"50%"});
+
+           
+        });
+       
+
+        
+         
+
+        
+        
 
         //Mapa,
 
@@ -233,9 +251,14 @@
            .bindPopup('GDLWebCamp 2021<br> Boletos ya disponibles.')
            .openPopup();
         })
-
+        
+       
 
     });
+     
+
+   
+
 
 
 
