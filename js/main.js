@@ -28,6 +28,8 @@
         var etiquetas = document.getElementById("etiquetas");
         var camisas = document.getElementById("camisa_evento");
 
+        botonRegistro.disabled = true;
+
 
         if(document.getElementById("calcular")){
 
@@ -118,8 +120,12 @@
                 for(var i = 0; i < listadoProductos.length ; i ++)  {
                     lista_productos.innerHTML += listadoProductos[i] + "<br/>";
                 }
-                suma.innerHTML = "$" + totalPagar.toFixed(2); /* toFixed retornará (2) decimales luego de la coma en el total a pagar y no más */
-                     }
+                suma.innerHTML = "€" + totalPagar.toFixed(2); /* toFixed retornará (2) decimales luego de la coma en el total a pagar y no más */
+
+                botonRegistro.disabled = false;
+                document.getElementById("total_pedido").value = totalPagar;
+
+            }
 
         }
 
